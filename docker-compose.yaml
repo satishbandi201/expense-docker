@@ -1,7 +1,7 @@
 networks:
   default:
     driver: bridge
-    name: roboshop
+    name: roboshop1
     #external: true #I created network already using docker network create roboshop
 volumes:
   mysql:
