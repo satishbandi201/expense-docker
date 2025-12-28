@@ -1,4 +1,4 @@
 FROM nginx:1.29.0-alpine
 RUN rm -rf /usr/share/nginx/html/index.html
-ADD .* /usr/share/nginx/html/
+COPY * /usr/share/nginx/html/
 ADD expense.conf /etc/nginx/default.d/
