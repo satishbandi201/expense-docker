@@ -1,0 +1,26 @@
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    #external: true #I created network already using docker network create roboshop
+volumes:
+  mysql:
+services:
+  mysql:
+    image: satishbandi33/expense-mysql:v1
+    container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql
+  backend:
+    image: satishbandi33/expense-backend:v1
+    container_name: backend
+    depends_on:
+    - mysql
+  frontend:
+    image: satishbandi33/expense-frontend:v1
+    container_name: frontend
+    ports:
+    - "80:80"
+    depends_on:
+    - backend
+      
